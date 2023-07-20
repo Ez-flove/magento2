@@ -1,0 +1,63 @@
+         <!--Remove footer link-->
+        <referenceBlock name="footer_links" remove="true"/>
+        <!--Remove old copyright-->
+        <referenceBlock name="copyright" remove="true"/>
+
+=> remove block khỏi footer
+
+        <referenceContainer name="footer" >
+            <block class="Magento\Cms\Block\Block" name="block_identifier1" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">block_identifier1</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+=> insert block đầu tiên vào
+=> trong admin tạo cms block block_identifier1
+
+Trong Magento, tên lớp (class name) cho một khối được xác định thông qua cấu trúc tên không gian tên (namespace) và tên khối (block name). Quy tắc để tìm tên lớp của một khối trong Magento như sau:
+
+1. Xác định tên không gian tên (namespace): Tên không gian tên trong Magento thường được xác định bởi module (mô-đun) mà khối thuộc về. Ví dụ: `Magento\Cms`, `Magento\Catalog`, `Magento\Newsletter`, v.v.
+
+2. Xác định tên khối (block name): Tên khối là một chuỗi được sử dụng để xác định khối cụ thể trong module đó. Tên khối thường được sử dụng trong các khối tĩnh (static block) hoặc khi đặt tên cho khối trong layout XML.
+
+3. Kết hợp tên không gian tên và tên khối: Tên lớp của một khối trong Magento được tạo bằng cách kết hợp tên không gian tên và tên khối, sử dụng dấu gạch chéo ngược (`\`) để phân tách chúng. Ví dụ: `Magento\Cms\Block\Block`, `Magento\Catalog\Block\Product\ListProduct`, `Magento\Newsletter\Block\Subscribe`, v.v.
+
+Vì Magento tuân theo quy tắc PSR-4 autoloading, nếu bạn biết tên không gian tên và tên khối, bạn có thể dễ dàng tìm thấy lớp tương ứng trong các tệp PHP của module đó.
+
+Lưu ý rằng có thể có các lớp khác nhau trong Magento với cùng tên khối, nhưng thuộc về các module khác nhau. Do đó, đảm bảo rằng bạn xác định đúng tên không gian tên của module mà khối thuộc về để tránh xung đột.
+
+
+        <referenceContainer name="footer">
+            <container name="footer_container2" label="footer container 2" htmlTag="div" htmlClass="footercontainer2">
+
+                <block class="Magento\Cms\Block\Block" name="block_identifier2" before="-" >
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">block_identifier2</argument>
+                    </arguments>
+                </block>
+
+                <block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe" template="Magento_Newsletter::subscribe.phtml" after="block_identifier2"/>
+            </container>
+        </referenceContainer>
+
+=> insert 2 block nằm dưới block 1 (trong 1 container)
+=> trong admin tạo cms block block_identifier2
+
+        <referenceContainer name="footer" >
+            <container name="footer_container3" label="footer container 3" htmlTag="div" htmlClass="footercontainer3">
+
+                <block class="Magento\Framework\View\Element\Template" name="custom_copyright" template="Magento_Theme::html/copyright.phtml"/>
+
+                <block class="Magento\Cms\Block\Block" name="block_identifier5" >
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">block_identifier5</argument>
+                    </arguments>
+                </block>
+
+            </container>
+        </referenceContainer>
+=> insert 2 block nằm trong container này: block_identifier5 và custom_copyright
+=> trong admin tạo cms block block_identifier5
+

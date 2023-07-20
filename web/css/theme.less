@@ -1,0 +1,134 @@
+/* Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+*/
+
+@color-text: #606060;
+@weight-text: 400;
+@color-fff: #fff;
+@color-f5: #f5f5f5;
+@color-button: #e75ca3;
+@color-button-hover: #d373a6;
+
+.page-footer {
+    background-color: @color-fff !important;
+    padding-bottom: 0 !important;
+}
+
+.block-payment {
+    background-color: @color-f5;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 20px 20px;
+
+    .feature {
+        align-items: center;
+        display: flex;
+        width: 25%;
+
+        .icon {
+            height: 20px;
+            width: 20px;
+        }
+
+        .content {
+            margin-left: 10px;
+        }
+    }
+
+    .image-payment {
+        display: flex;
+        height: 30px;
+        justify-content: space-between;
+        width: 33%;
+
+        img {
+            margin-right: 10px;
+            width: 60px;
+        }
+    }
+}
+
+.footercontainer2 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .block-2 {
+        display: flex;
+        justify-content: space-between;
+        width: 130%;
+
+        .column {
+            color: @color-text;
+            font-weight: @weight-text;
+            line-height: 30px;
+            width: 22%;
+        }
+    }
+
+    .block.newsletter {
+        width: 30%;
+
+        .title {
+            color: @color-text;
+            display: block;
+            font-weight: @weight-text;
+        }
+
+        .content p {
+            color: @color-text;
+            font-weight: @weight-text;
+        }
+
+        .action.subscribe.primary {
+            background-color: @color-button;
+            border: none;
+            color: @color-fff;
+            font-weight: 400;
+            line-height: 18px;
+
+            &:hover {
+                background-color: @color-button-hover;
+            }
+        }
+    }
+}
+
+.footercontainer3 {
+    align-items: center;
+    background-color: rgb(235, 235, 235);
+    display: flex;
+    font-weight: @weight-text;
+    height: 46px;
+    justify-content: space-between;
+    margin-top: 28px;
+    padding: 4px 10px;
+
+    .copyright {
+        background-color: @color-f5;
+        color: @color-text;
+    }
+
+    .list-items {
+        color: @color-text;
+        display: flex;
+        justify-content: center;
+
+        li {
+            position: relative;
+            padding: 0 8px;
+
+            &:not(:first-child)::before {
+                background-color: @color-text;
+                content: '';
+                height: 12px;
+                left: 0;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 1px;
+            }
+        }
+    }
+}

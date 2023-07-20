@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="css/theme.css" />
+    </head>
+    <body>
+        <!--Change logo-->
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/bss-logo.png</argument>
+                <argument name="logo_width" xsi:type="string">150</argument>
+                <argument name="logo_height" xsi:type="string">150</argument>
+                <argument name="logo_alt" xsi:type="string">Logo name</argument>
+            </arguments>
+        </referenceBlock>
+
+        <!--Remove footer link-->
+        <referenceBlock name="footer_links" remove="true"/>
+        <!--Remove old copyright-->
+        <referenceBlock name="copyright" remove="true"/>
+
+        <!--Insert block footer-->
+
+        <!--Insert block footer 1-->
+        <referenceContainer name="footer" >
+            <block class="Magento\Cms\Block\Block" name="block_identifier1" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">block_identifier1</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <!--Insert block footer 2-->
+        <referenceContainer name="footer">
+            <container name="footer_container2" label="footer container 2" htmlTag="div" htmlClass="footercontainer2">
+                <block class="Magento\Cms\Block\Block" name="block_identifier2" before="-" >
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">block_identifier2</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe" template="Magento_Newsletter::subscribe.phtml" after="block_identifier2"/>
+            </container>
+        </referenceContainer>
+
+        <!--Insert block footer 3-->
+        <referenceContainer name="footer" >
+            <container name="footer_container3" label="footer container 3" htmlTag="div" htmlClass="footercontainer3">
+                <block class="Magento\Framework\View\Element\Template" name="custom_copyright" template="Magento_Theme::html/copyright.phtml"/>
+                <block class="Magento\Cms\Block\Block" name="block_identifier5" >
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">block_identifier5</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+
+    </body>
+</page> 
