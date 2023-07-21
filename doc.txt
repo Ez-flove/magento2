@@ -61,3 +61,9 @@ Lưu ý rằng có thể có các lớp khác nhau trong Magento với cùng tê
 => insert 2 block nằm trong container này: block_identifier5 và custom_copyright
 => trong admin tạo cms block block_identifier5
 
++ Hạn chế dùng important: https://i.imgur.com/0cjFuBC.png, 
+nên có tối đa 4 tầng trong file less, giữa các khối thì nên có 1 dòng trống. https://i.imgur.com/QizEuwh.png
++ cho tất cả vào container footer
+
++ thêm các sản phẩm vào dưới:
+tạo block-product-category: row 1 add text: We found other product you might like, row 2: add product (product carousel) by category 

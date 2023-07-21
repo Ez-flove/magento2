@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="css/product-page.css" />
+    </head>
+    <body>
+        <!--Remove stock status, SKU-->
+        <referenceBlock name="product.info.stock.sku" remove="true"/>
+        <!--Remove review-->
+        <referenceBlock name="product.info.review" remove="true"/>
+        <!--Move description to before extrahint-->
+        <move element="product.info.details" destination="product.info.main" before="product.info.extrahint"/>
+        <!--temporary Remove upsell, related product-->
+        <referenceBlock name="product.info.upsell" remove="true"/>
+        <referenceBlock name="catalog.product.related" remove="true"/>
+
+        <!--Custom tab-->
+        <referenceBlock name="product.info.details">
+            <block class="Magento\Framework\View\Element\Template" name="product.custom.tab" as="custom_tab" template="Magento_Theme::html/customtab.phtml" group="detailed_info">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">New Custom Tab</argument>
+                    <argument name="sort_order" xsi:type="string">25</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <!--Custom button-->
+        <referenceBlock name="product.info.addtocart">
+            <block class="Magento\Framework\View\Element\Template" template="Magento_Theme::html/custombutton.phtml"/>
+        </referenceBlock>
+
+        <!--Product category-->
+        <referenceContainer name="main.content">
+            <block class="Magento\Cms\Block\Block" name="block-product-category">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">block-product-category</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+    </body>
+</page>

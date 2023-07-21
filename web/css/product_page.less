@@ -1,0 +1,180 @@
+/* Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+*/
+
+@border-color: rgba(128, 128, 128, .1);
+@color-70: #030303;
+@color-ccc: #ccc;
+@color-black-custom: #000;
+@color-fff: #fff;
+@color-description: #afaeae;
+@color-description-hover: #8a7a7a;
+@color-description-active: #5b5b5b;
+
+.breadcrumbs {
+
+    li.category a,
+    li.home a {
+        color: @color-70 !important;
+    }
+
+    li.item.category::after,
+    li.item.home::after {
+        content: '/' !important;
+        font-size: 16px !important;
+        line-height: 16px !important;
+        margin: 0 2px !important;
+    }
+
+    strong {
+        color: @color-70;
+        font-weight: 700;
+    }
+}
+
+.column.main {
+    margin-top: 30px;
+
+    .product.media {
+        border: 4px solid @border-color;
+        width: 30%;
+    }
+
+    .product-info-main {
+        width: 65%;
+
+        .page-title {
+            border-bottom: 1px solid @color-ccc;
+            font-weight: 700;
+            padding-bottom: 20px;
+        }
+
+        .product-info-price {
+            border-bottom: none;
+            position: absolute;
+            top: 420px;
+            width: 300px;
+
+            .price {
+                font-size: 24px !important;
+            }
+        }
+
+        .product-add-form {
+            display: flex;
+            justify-content: flex-end;
+            padding-bottom: 30px;
+            padding-top: 22px;
+
+            form {
+                display: flex;
+                justify-content: flex-end;
+                width: 100%;
+
+                .product-options-wrapper {
+                    display: flex;
+                    justify-content: flex-start;
+                    margin-right: 20px;
+                    margin-top: -20px;
+                }
+
+                .box-tocart {
+                    width: 100%;
+
+                    .fieldset {
+                        display: flex;
+                        justify-content: flex-end;
+                        width: 100%;
+
+                        .field {
+                            display: flex;
+                            font-weight: 500;
+                            line-height: 35px;
+                            width: 120px;
+
+                            input.input-text {
+                                height: 40px;
+                                margin-left: 8px;
+                            }
+                        }
+
+                        .action.primary.tocart {
+                            background-color: @color-black-custom;
+                            font-size: 13px;
+                            height: 40px;
+                            line-height: 11px;
+                            width: 110px;
+
+                            &:hover {
+                                background-color: @color-ccc;
+                            }
+                        }
+
+                        .custom-button {
+
+                            .action,
+                            .primary {
+                                float: left;
+                            }
+
+                            background-color: @color-black-custom;
+                            border-radius: 3px;
+                            box-sizing: border-box;
+                            color: @color-fff;
+                            font-size: 1.3rem;
+                            float: left;
+                            font-weight: 700;
+                            line-height: 2.2rem;
+                            margin-bottom: 15px;
+                            padding: 14px 17px;
+                            vertical-align: middle;
+                            width: 170px;
+
+                            &:hover {
+                                background-color: @color-ccc;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .product.detailed {
+            margin-top: -30px;
+
+            .item.title {
+                margin-right: 10px;
+
+                .switch {
+                    background-color: @color-description;
+                    color: @color-fff;
+                }
+
+                &:hover {
+                    .switch {
+                        background-color: @color-description-hover;
+                        color: @color-fff;
+                    }
+                }
+
+                &.active {
+                    .switch {
+                        background-color: @color-description-active;
+                        color: @color-fff;
+                    }
+                }
+            }
+
+            .item.content {
+                border-left: none;
+                border-right: none;
+            }
+        }
+    }
+}
+
+.product-social-links {
+    .action {
+        font-size: 10px;
+    }
+}
