@@ -1,0 +1,22 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="bss" translate="label" class="bss" sortOrder="10">
+            <label>Bss Settings</label>
+        </tab>
+
+        <section id="bss" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="10" translate="label">
+            <label>Bss Settings</label>
+            <tab>bss</tab>
+            <resource>Bss_AdminConfig::bss_config</resource>
+
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Bss Configuration Routes</label>
+                <field id="text" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>KO JS Form Url</label>
+                    <comment>Url path.</comment>
+                    <config_path>bss/bss_config/ko_js_form_url</config_path>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

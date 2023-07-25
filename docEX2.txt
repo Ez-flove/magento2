@@ -1,0 +1,5 @@
+https://magento2.test/bss/bt2
+
+
+cấu trúc thư mục: app/code/bss/bt2
+config trong admin:
